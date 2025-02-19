@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth Free Time Survey</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="min-h-screen bg-gradient">
+        <div class="container">
+            <header class="text-center">
+                <div class="icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 11V6a3 3 0 0 1 6 0v5"/>
+                        <path d="M11 11h2"/>
+                        <path d="M16 16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"/>
+                        <path d="M17 11h1.5a1.5 1.5 0 0 1 0 3H17"/>
+                        <path d="M17 17v-3"/>
+                    </svg>
+                </div>
+                <h1>How Young People Spend Their Free Time</h1>
+                <p class="subtitle">Help us understand the interests and activities of your age group</p>
+                <div class="points-container">
+                    <div class="points">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        <span id="points-display">100 points</span>
+                    </div>
+                    <div id="high-score" class="high-score hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="award-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        </svg>
+                        <span>High Score!</span>
+                    </div>
+                </div>
+            </header>
+
+            <form id="survey-form" class="survey-form">
+                <div id="error-message" class="error-message hidden"></div>
+                
+                <div class="progress-bar">
+                    <div class="progress-text">
+                        <span>Step <span id="current-step">1</span> of 4</span>
+                        <span><span id="progress-percentage">25</span>% completed</span>
+                    </div>
+                    <div class="progress-track">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div id="step-1" class="step">
+                    <h2>Basic Information</h2>
+                    <div class="question-group">
+                        <label>Age</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="age" value="15">15 years old</label>
+                            <label><input type="radio" name="age" value="16">16 years old</label>
+                            <label><input type="radio" name="age" value="17">17 years old</label>
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <label>Gender</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="gender" value="Male">Male</label>
+                            <label><input type="radio" name="gender" value="Female">Female</label>
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <label>City or region (Optional)</label>
+                        <input type="text" name="city" class="text-input">
+                    </div>
+                </div>
+
+                <div id="step-2" class="step hidden">
+                    <h2>Free Time Usage</h2>
+                    <div class="question-group">
+                        <label>How many hours per day do you usually have for free time?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="freeTimeHours" value="Less than an hour">Less than an hour</label>
+                            <label><input type="radio" name="freeTimeHours" value="1 to 3 hours">1 to 3 hours</label>
+                            <label><input type="radio" name="freeTimeHours" value="4 to 6 hours">4 to 6 hours</label>
+                            <label><input type="radio" name="freeTimeHours" value="More than 6 hours">More than 6 hours</label>
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <label>What activities do you usually engage in during your free time?</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="activities" value="Sports and physical activities">Sports and physical activities</label>
+                            <label><input type="checkbox" name="activities" value="Reading and studying">Reading and studying</label>
+                            <label><input type="checkbox" name="activities" value="Watching movies and TV series">Watching movies and TV series</label>
+                            <label><input type="checkbox" name="activities" value="Using social media">Using social media</label>
+                            <label><input type="checkbox" name="activities" value="Playing video games">Playing video games</label>
+                            <label><input type="checkbox" name="activities" value="Learning a new skill">Learning a new skill</label>
+                            <label><input type="checkbox" name="activities" value="Volunteering and charity work">Volunteering and charity work</label>
+                            <label><input type="checkbox" name="activities" value="Hanging out with friends and family">Hanging out with friends and family</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="step-3" class="step hidden">
+                    <h2>Development and Learning</h2>
+                    <div class="question-group">
+                        <label>What new skills would you like to learn?</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="newSkills" value="Artistic skills">Artistic skills</label>
+                            <label><input type="checkbox" name="newSkills" value="Sports skills">Sports skills</label>
+                            <label><input type="checkbox" name="newSkills" value="Technical skills">Technical skills</label>
+                            <label><input type="checkbox" name="newSkills" value="Learning new languages">Learning new languages</label>
+                            <label><input type="checkbox" name="newSkills" value="Volunteering and charity work">Volunteering and charity work</label>
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <label>Do you think that your community provides enough opportunities?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="communityOpportunities" value="Yes, there are many available opportunities">Yes, there are many available opportunities</label>
+                            <label><input type="radio" name="communityOpportunities" value="Somewhat, but there are gaps in certain areas">Somewhat, but there are gaps in certain areas</label>
+                            <label><input type="radio" name="communityOpportunities" value="No, I think there is a lack of youth activities">No, I think there is a lack of youth activities</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="step-4" class="step hidden">
+                    <h2>Final Thoughts</h2>
+                    <div class="question-group">
+                        <label>What advice would you give to young people on how to make better use of their free time?</label>
+                        <textarea name="advice" rows="4" placeholder="Share your thoughts... (minimum 10 characters)"></textarea>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" id="prev-button" class="button secondary hidden">Previous</button>
+                    <button type="button" id="next-button" class="button primary">Next</button>
+                </div>
+            </form>
+
+            <div id="thank-you" class="thank-you hidden">
+                <div class="icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 11V6a3 3 0 0 1 6 0v5"/>
+                        <path d="M11 11h2"/>
+                        <path d="M16 16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"/>
+                        <path d="M17 11h1.5a1.5 1.5 0 0 1 0 3H17"/>
+                        <path d="M17 17v-3"/>
+                    </svg>
+                </div>
+                <h2>Thank you for your participation!</h2>
+                <p>Your responses will help in understanding how young people spend their free time and how opportunities can be improved for them.</p>
+                <div class="final-score">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="award-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="7"/>
+                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                    </svg>
+                    <span id="final-points">Final Score: 100 points</span>
+                </div>
+            </div>
+        </div>
+        <footer>© 2024 Created by Dhiaa/Amjed. All rights reserved.</footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
